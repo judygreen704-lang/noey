@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Reading Tracker</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .tracker { max-width: 600px; margin: auto; padding: 20px; border: 1px solid #ccc; }
+        h1 { text-align: center; }
+        input[type="date"] { width: 100%; padding: 10px; margin: 10px 0; }
+        input[type="text"] { width: 100%; padding: 10px; margin: 10px 0; }
+        button { padding: 10px 15px; }
+    </style>
+</head>
+<body>
+    <div class="tracker">
+        <h1>Daily Reading Tracker</h1>
+        <label for="date">Select Date:</label>
+        <input type="date" id="date">
+        <label for="book">Book Title:</label>
+        <input type="text" id="book" placeholder="Enter book title">
+        <button id="track-btn">Track Reading</button>
+        <div id="log"></div>
+    </div>
+    <script>
+        document.getElementById('track-btn').addEventListener('click', function() {
+            const date = document.getElementById('date').value;
+            const book = document.getElementById('book').value;
+            if (date && book) {
+                const log = document.getElementById('log');
+                log.innerHTML += `<p>You read <strong>${book}</strong> on <strong>${date}</strong>.</p>`;
+                document.getElementById('book').value = '';  // Clear the input
+            }
+        });
+    </script>
+</body>
+</html>
